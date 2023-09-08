@@ -4,7 +4,7 @@
 
 De acordo com os requisitos do cliente chegou-se ao seguinte modelo de dados.
 
-![](https://github.com/arleysouza/api-2023-2-2dsm-back/blob/main/public/images/modelo-br.png)
+![](https://github.com/arleysouza/api-2023-2-2dsm-back/blob/master/public/images/modelo-bd.png)
 
 ### Como utilizar
 
