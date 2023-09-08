@@ -22,7 +22,7 @@ $ yarn install
 $ npm install
 ```
 
-Forneça os dados de conexão com o BD no arquivo \`.env\`:
+Forneça os dados de conexão com o BD no arquivo `.env`:
 ```
 PORT = 3001
 DATABASE = bdapi
