@@ -7,7 +7,7 @@ import { Category } from "../entities/Category";
 
 class BikeController {
   public async create(req: Request, res: Response): Promise<Response> {
-    const { iduser, idcategory, idbrand, color, size, material, gender, speedkit, rim, suspension, description, hourlyvalue, dailyvalue } = req.body;
+    const { iduser, idcategory, idbrand, color, size, material, gender, speedkit, rim, suspension, description, hourlyvalue, dailyvalue, latitude, longitude } = req.body;
 
     //obtém o usuário na tabela users
     const user = await AppDataSource.manager.findOneBy(User, { id: iduser });
@@ -27,12 +27,12 @@ class BikeController {
       return res.status(400).json({ error: "Categoria desconhecida", props:"category" });
     }
 
-    const bike = await AppDataSource.manager.save(Bike, { user, brand, category, color, size, material, gender, speedkit, rim, suspension, description, hourlyvalue, dailyvalue });
+    const bike = await AppDataSource.manager.save(Bike, { user, brand, category, color, size, material, gender, speedkit, rim, suspension, description, hourlyvalue, dailyvalue, latitude, longitude });
     return res.json(bike);
   }
 
   public async update(req: Request, res: Response): Promise<Response> {
-    const { id, iduser, idcategory, idbrand, color, size, material, gender, speedkit, rim, suspension, description, hourlyvalue, dailyvalue } = req.body;
+    const { id, iduser, idcategory, idbrand, color, size, material, gender, speedkit, rim, suspension, description, hourlyvalue, dailyvalue, latitude, longitude } = req.body;
 
     //obtém o usuário na tabela users
     const user = await AppDataSource.manager.findOneBy(User, { id: iduser });
@@ -52,7 +52,7 @@ class BikeController {
       return res.status(400).json({ error: "Categoria desconhecida", props:"category" });
     }
 
-    const bike = await AppDataSource.manager.save(Bike, { id, user, brand, category, color, size, material, gender, speedkit, rim, suspension, description, hourlyvalue, dailyvalue });
+    const bike = await AppDataSource.manager.save(Bike, { id, user, brand, category, color, size, material, gender, speedkit, rim, suspension, description, hourlyvalue, dailyvalue, latitude, longitude });
     return res.json(bike);
   }
 
@@ -61,7 +61,8 @@ class BikeController {
       relations: {
         user: true,
         brand: true,
-        category: true
+        category: true,
+        photos: true
       }
     });
     return res.json(bikes);

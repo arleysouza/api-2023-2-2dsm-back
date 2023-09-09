@@ -1,9 +1,7 @@
-import { Router, Request, Response } from "express";
+import express, { Router, Request, Response } from "express";
 import controller from "../controllers/PhotoController";
 import multer from "multer";
 import path from "path";
-
-console.log("fotos", process.env.FOLDERPHOTOS)
 
 // para mais detalhes acesse: https://www.youtube.com/watch?v=FFWNVPysy5I
 const storage = multer.diskStorage({
@@ -23,6 +21,8 @@ const routes = Router();
 routes.post('/', upload.single('file'), controller.create);
 routes.get('/', controller.list);
 routes.delete('/', controller.delete);
+// rota para a pasta public/photos
+routes.use("/public", express.static('public/photos'));
 
 //aceita qualquer método HTTP ou URL
 routes.use( (_:Request,res:Response) => res.json({error:"Requisição desconhecida"}) );

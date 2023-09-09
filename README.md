@@ -16,7 +16,7 @@ $ git clone https://github.com/arleysouza/api-2023-2-2dsm-back.git servidor
 # Acesse a pasta do projeto
 $ cd servidor
 
-# instale as dependencias
+# instale as dependências
 $ yarn install
       ou
 $ npm install
@@ -31,4 +31,17 @@ PASSWORD = 123
 FOLDERPHOTOS = ../../public/photos
 ```
 
+Criar a migração no BD:
+```
+# gerar o arquivo de migração com os comandos SL
+$ npm run migration:generate
 
+# submeter as migrações no SGBD
+$ npm run migration:run
+```
+
+Na figura a seguir estão os passos para carregar um registro na tabela photos usando o Thunder Client do VS Code:
+![](https://github.com/arleysouza/api-2023-2-2dsm-back/blob/master/public/images/file-upload-thunder-client.png)
+
+Para ver a foto no navegador use a URL a seguir, apenas mude o nome do arquivo:
+http://localhost:3001/foto/public/1694291669768-561761172.png

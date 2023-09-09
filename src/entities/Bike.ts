@@ -35,7 +35,7 @@ export class Bike {
     @Column({ nullable: false, length:10 })
     speedkit: string;
 
-    @Column({ nullable: false })
+    @Column({ nullable: false, type:"float" })
     rim: number;
 
     @Column({ nullable: false })
@@ -49,6 +49,12 @@ export class Bike {
 
     @Column({ nullable: false, type: "decimal", precision:10, scale: 2 })
     dailyvalue: number;
+
+    @Column({ nullable: false, type:"float"  })
+    latitude: number;
+
+    @Column({ nullable: false, type:"float"  })
+    longitude: number;
 
     @ManyToOne(() => Brand, {nullable:false})
     @JoinColumn({ name: "idbrand" })
