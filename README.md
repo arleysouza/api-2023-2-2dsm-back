@@ -33,11 +33,16 @@ FOLDERPHOTOS = ../../public/photos
 
 Criar a migração no BD:
 ```
-# gerar o arquivo de migração com os comandos SL
+# gerar o arquivo de migração com os comandos SQL
 $ npm run migration:generate
 
 # submeter as migrações no SGBD
 $ npm run migration:run
+```
+
+Subir o servidor:
+```
+$ npm start
 ```
 
 Na figura a seguir estão os passos para carregar um registro na tabela photos usando o Thunder Client do VS Code:
